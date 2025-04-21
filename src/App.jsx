@@ -105,27 +105,30 @@ function App() {
     marginTop: 10,
     boxShadow: "3px 3px 5px black"
   };
-  const [currentAudio, setCurrentAudio] = useState(audio1)
-  
-  function playSound(audio){
-  const sound = document.getElementById(audio.keyLetter);
-  sound.currentTime = 0;
-  sound.play();
-  document.getElementById('display').innerText = audio.id;
-}
-  
-  return(
-  <div id="drum-machine">
-      <div id='display'></div>
-      <div id="buttons">
-        {currentAudio.map((audio)=>(<button
-        key={audio.keyCode} onClick={()=>playSound(audio)}>
-            {audio.keyLetter}<audio id={audio.keyLetter}
-        src={audio.url}/></button>))}
-      </div>
-      <button onClick={() => {setCurrentAudio(prev => prev === audio1 ? audio2 : audio1)}}>Trocar sons</button>
-  </div>)
-}
+   const [isFirstSet, setIsFirstSet] = useState(true);
+  const currentAudio = isFirstSet ? audio1 : audio2;
 
+  function playSound(audio) {
+    const sound = document.getElementById(audio.keyLetter);
+    sound.currentTime = 0;
+    sound.play();
+    document.getElementById('display').innerText = audio.id;
+  }
+
+  return (
+    <div id="drum-machine">
+      <div id="display"></div>
+      <div id="buttons">
+        {currentAudio.map((audio) => (
+          <button key={audio.keyCode} onClick={() => playSound(audio)}>
+            {audio.keyLetter}
+            <audio id={audio.keyLetter} src={audio.url} />
+          </button>
+        ))}
+      </div>
+      <button onClick={() => setIsFirstSet(prev => !prev)}>Trocar sons</button>
+    </div>
+  );
+}
 
 ReactDOM.render(<App />, document.getElementById("root"));
