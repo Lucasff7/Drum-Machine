@@ -1,6 +1,6 @@
 # Drum Machine
 
-This project is a web-based Drum Machine application developed using React + Vite. It enables users to play drum sounds using both keyboard and mouse inputs, switch between two distinct sound sets, and adjust the playback volume dynamically.
+This project is a web-based Drum Machine application developed using React + Vite. It enables users to play drum sounds using both keyboard (Q;W;E;A;S;D;Z;X;C) and mouse inputs, switch between two distinct sound sets, and adjust the playback volume dynamically.
 
 ## Features
 
