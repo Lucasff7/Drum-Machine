@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client'; 
 import { useState, useEffect } from "react"; 
-import './style.css';
+import './App.css'
 
 function App() {
   const audio1 = [
@@ -94,4 +94,4 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+export default App;
